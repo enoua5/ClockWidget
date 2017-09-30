@@ -1,3 +1,16 @@
+/*
+ * This is the drawing canvas for the clock.
+ * It has the function update(), which is called indirectly from Canvas.repaint()
+ * It also is responsible for getting the current time, and tranlating that to hand positions.
+ * Also found here, near the bottom, is the code for dragging the clock and for displaying the right click menu.
+ * 
+ * TODO:
+ * Add support for setting displayed time +/- some amount from the reported time
+ * Add support for fluid hand movement
+ * Add support for removing hands
+ * 
+ * --Jacob Allen
+ */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -135,7 +148,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
                 g2.setStroke(new BasicStroke(Settings.hourMark.width));
                 g2.drawLine(x1, y1, x2, y2);
             }
-            //numberExcluding merges, 2 authors have pushed 5 commits to master and 5 commits to all branches. On master, 7 files have changed and ther
+            //number
             if(Settings.hourMark.hasNumber)
             {
                 //find text draw point

@@ -1,3 +1,13 @@
+/*
+ * Here are found a bunch of static variables, keeping track of clock settings.
+ * The settings listed here are the defaults, they will be overwritten at startup with the read-in settings (if they are present)
+ * 
+ * TODO:
+ * Just keep adding more settings as they become needed
+ * We may put the save() and load() functions here as well
+ * 
+ * --Jacob Allen
+ */
 import java.awt.*;
 public class Settings
 {

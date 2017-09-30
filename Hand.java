@@ -1,3 +1,11 @@
+/*
+ * This is the class for the clock hands.
+ * 
+ * TODO:
+ * Add a boolean visible
+ * 
+ * --Jacob Allen
+ */
 import java.awt.Color;
 public class Hand
 {

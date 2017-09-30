@@ -1,3 +1,9 @@
+/*
+ * A JFrame to hold the clock.
+ * It has no window border, and is transparent.
+ * 
+ * --Jacob Allen
+ */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;

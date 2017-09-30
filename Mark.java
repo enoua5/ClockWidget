@@ -1,3 +1,12 @@
+/*
+ * This keeps track of settings for tick marks.
+ * They can have a number, a tick, or both.
+ * The number can be replaced with a roman numeral.
+ * 
+ * This class is used thrice. Once for the cardinal hours (3, 6, 9, and 12), once for the other hour marks, and once for the minute/second marks.
+ * 
+ * --Jacob Allen
+ */
 import java.awt.*;
 public class Mark
 {
