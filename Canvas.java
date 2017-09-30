@@ -104,7 +104,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
                 if(Settings.cardinalMark.roman)
                 {
                     String[] romanNumbers={"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"};
-                    number=romanNumbers[n];
+                    number=romanNumbers[n-1];
                 }
                 else
                     number=n+"";
@@ -135,7 +135,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
                 g2.setStroke(new BasicStroke(Settings.hourMark.width));
                 g2.drawLine(x1, y1, x2, y2);
             }
-            //number
+            //numberExcluding merges, 2 authors have pushed 5 commits to master and 5 commits to all branches. On master, 7 files have changed and ther
             if(Settings.hourMark.hasNumber)
             {
                 //find text draw point
@@ -146,7 +146,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
                 if(Settings.hourMark.roman)
                 {
                     String[] romanNumbers={"I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"};
-                    number=romanNumbers[n];
+                    number=romanNumbers[n-1];
                 }
                 else
                     number=n+"";
