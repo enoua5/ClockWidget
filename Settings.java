@@ -15,9 +15,9 @@ public class Settings
     
     public static Color faceColor=new Color(255,255,255);
     
-    public static Hand hour=new Hand(0.5, 10, new Color(0,0,0));
-    public static Hand min=new Hand(0.9, 6, new Color(0,0,0));
-    public static Hand sec=new Hand(0.8, 4, new Color(255,0,0));
+    public static Hand hour=new Hand(0.5, 10, new Color(0,0,0), true);
+    public static Hand min=new Hand(0.9, 6, new Color(0,0,0), true);
+    public static Hand sec=new Hand(0.8, 4, new Color(255,0,0), false);
     
     public static Mark cardinalMark=new Mark(new Font("TimesRoman", Font.BOLD, 32),false, 0.8, new Color(0,0,0),
         3, 0.05, new Color(0,0,0));//3,6,9,12
