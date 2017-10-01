@@ -6,7 +6,6 @@
  * 
  * TODO:
  * Add support for setting displayed time +/- some amount from the reported time
- * Add support for fluid hand movement
  * Add support for removing hands
  * 
  * --Jacob Allen
@@ -71,15 +70,22 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         Graphics2D g2=(Graphics2D)g;
         g.clearRect(0, 0, Settings.diameter, Settings.diameter);
         //figure out time
-        long milli=System.currentTimeMillis();
-        long sec=milli/1000;
-        long min=sec/60;
-        long hour=min/60;
+        double milli=System.currentTimeMillis();
+        double sec=milli/1000;
+        double min=sec/60;
+        double hour=min/60;
         //make units loop over their domain. We don't need to count the days in milliseconds.
         milli%=1000;
         sec%=60;
         min%=60;
         hour%=12;
+        //round down the ones whose hand does not move smoothly
+        if(!Settings.sec.smooth)
+            sec=Math.floor(sec);
+        if(!Settings.min.smooth)
+            min=Math.floor(min);
+        if(!Settings.hour.smooth)
+            hour=Math.floor(hour);
         //time is grabbed from UTC±0. This line will be replaced with reading from settings
         hour+=6;
         //draw the face
@@ -210,10 +216,11 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
             }
         }
         //draw the hands
+        double a, x, y;
         //find angle of hour hand
-        double a=(((double)hour/12)*2*Math.PI);
-        double x=rad+Math.sin(a)*(rad*Settings.hour.length);
-        double y=rad-Math.cos(a)*(rad*Settings.hour.length);
+        a=((hour/12)*2*Math.PI);
+        x=rad+Math.sin(a)*(rad*Settings.hour.length);
+        y=rad-Math.cos(a)*(rad*Settings.hour.length);
         //draw it
         g.setColor(Settings.hour.color);
         g2.setStroke(new BasicStroke(Settings.hour.width));
