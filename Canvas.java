@@ -4,9 +4,6 @@
  * It also is responsible for getting the current time, and tranlating that to hand positions.
  * Also found here, near the bottom, is the code for dragging the clock and for displaying the right click menu.
  * 
- * TODO:
- * Add support for setting displayed time +/- some amount from the reported time
- * 
  * --Jacob Allen
  */
 import java.awt.*;
@@ -69,7 +66,7 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         Graphics2D g2=(Graphics2D)g;
         g.clearRect(0, 0, Settings.diameter, Settings.diameter);
         //figure out time
-        double milli=System.currentTimeMillis();
+        double milli=System.currentTimeMillis()+Settings.timeOffset;
         double sec=milli/1000;
         double min=sec/60;
         double hour=min/60;
@@ -85,8 +82,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
             min=Math.floor(min);
         if(!Settings.hour.smooth)
             hour=Math.floor(hour);
-        //time is grabbed from UTC±0. This line will be replaced with reading from settings
-        hour+=6;
         //draw the face
         g.setColor(Settings.faceColor);
         g.fillOval(0, 0, Settings.diameter, Settings.diameter);
