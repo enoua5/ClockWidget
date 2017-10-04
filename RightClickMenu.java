@@ -3,7 +3,6 @@
  * Initializer adds in all the options, with the text and some code to run.
  * 
  * TODO:
- * Save settings before closing
  * Add menu option to bring up settings window
  * 
  * --Jacob Allen
@@ -18,7 +17,8 @@ public class RightClickMenu extends JPopupMenu
             public void actionPerformed(ActionEvent e)
             {
                 //code to run when close is clicked
-                Main.f.dispatchEvent(new WindowEvent(Main.f, WindowEvent.WINDOW_CLOSING));
+                Settings.save();
+                Main.frame.dispatchEvent(new WindowEvent(Main.frame, WindowEvent.WINDOW_CLOSING));
             }
         }));
     }

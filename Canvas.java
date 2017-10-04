@@ -292,6 +292,6 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         //to find point that the clock needs to go to
         Point n=new Point(s.x-this.down.x, s.y-this.down.y);
         //move it there
-        Main.f.setLocation(n.x, n.y);
+        Main.frame.setLocation(n.x, n.y);
     }
 }

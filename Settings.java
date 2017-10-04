@@ -11,6 +11,14 @@
 import java.awt.*;
 public class Settings
 {
+    public static void save()
+    {
+        //save these settings to file
+    }
+    public static void load()
+    {
+        //read settings from file and update Settings
+    }
     public static int diameter=200;
     
     public static Color faceColor=new Color(255,255,255);

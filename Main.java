@@ -13,18 +13,20 @@
 
 public class Main
 {
-    public static Canvas c;
-    public static Frame f;
+    public static Canvas canvas;
+    public static Frame frame;
     public static void main(String[] args)
     throws java.lang.InterruptedException
     {
+        //should be self explanitory
+        Settings.load();
         //set up and launch widget
-        c=new Canvas();
-        f=new Frame(c);
+        canvas=new Canvas();
+        frame=new Frame(canvas);
         //animate
         while(true)
         {
-            c.repaint();
+            canvas.repaint();
             Thread.sleep(20);
         }
     }
