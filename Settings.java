@@ -4,7 +4,7 @@
  * 
  * TODO:
  * Just keep adding more settings as they become needed
- * We may put the save() and load() functions here as well
+ * Fill out save() and load()
  * 
  * --Jacob Allen
  */
@@ -20,6 +20,8 @@ public class Settings
         //read settings from file and update Settings
     }
     public static int diameter=200;
+    
+    public static long timeOffset=6*60*60*1000; //6 hours
     
     public static Color faceColor=new Color(255,255,255);
     
