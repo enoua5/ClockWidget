@@ -6,7 +6,6 @@
  * 
  * TODO:
  * Add support for setting displayed time +/- some amount from the reported time
- * Add support for removing hands
  * 
  * --Jacob Allen
  */
@@ -217,32 +216,39 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
         }
         //draw the hands
         double a, x, y;
-        //find angle of hour hand
-        a=((hour/12)*2*Math.PI);
-        x=rad+Math.sin(a)*(rad*Settings.hour.length);
-        y=rad-Math.cos(a)*(rad*Settings.hour.length);
-        //draw it
-        g.setColor(Settings.hour.color);
-        g2.setStroke(new BasicStroke(Settings.hour.width));
-        g2.drawLine(rad, rad, (int)x, (int)y);
-        
-        //find angle of minute hand
-        a=(((double)min/60)*2*Math.PI);
-        x=rad+Math.sin(a)*(rad*Settings.min.length);
-        y=rad-Math.cos(a)*(rad*Settings.min.length);
-        //draw it
-        g.setColor(Settings.min.color);
-        g2.setStroke(new BasicStroke(Settings.min.width));
-        g2.drawLine(rad, rad, (int)x, (int)y);
-        
-        //find angle of second hand
-        a=(((double)sec/60)*2*Math.PI);
-        x=rad+Math.sin(a)*(rad*Settings.sec.length);
-        y=rad-Math.cos(a)*(rad*Settings.sec.length);
-        //draw it
-        g.setColor(Settings.sec.color);
-        g2.setStroke(new BasicStroke(Settings.sec.width));
-        g2.drawLine(rad, rad, (int)x, (int)y);
+        if(Settings.hour.visible)
+        {
+            //find angle of hour hand
+            a=((hour/12)*2*Math.PI);
+            x=rad+Math.sin(a)*(rad*Settings.hour.length);
+            y=rad-Math.cos(a)*(rad*Settings.hour.length);
+            //draw it
+            g.setColor(Settings.hour.color);
+            g2.setStroke(new BasicStroke(Settings.hour.width));
+            g2.drawLine(rad, rad, (int)x, (int)y);
+        }
+        if(Settings.min.visible)
+        {
+            //find angle of minute hand
+            a=(((double)min/60)*2*Math.PI);
+            x=rad+Math.sin(a)*(rad*Settings.min.length);
+            y=rad-Math.cos(a)*(rad*Settings.min.length);
+            //draw it
+            g.setColor(Settings.min.color);
+            g2.setStroke(new BasicStroke(Settings.min.width));
+            g2.drawLine(rad, rad, (int)x, (int)y);
+        }
+        if(Settings.sec.visible)
+        {
+            //find angle of second hand
+            a=(((double)sec/60)*2*Math.PI);
+            x=rad+Math.sin(a)*(rad*Settings.sec.length);
+            y=rad-Math.cos(a)*(rad*Settings.sec.length);
+            //draw it
+            g.setColor(Settings.sec.color);
+            g2.setStroke(new BasicStroke(Settings.sec.width));
+            g2.drawLine(rad, rad, (int)x, (int)y);
+        }
     }
     
     //getters
