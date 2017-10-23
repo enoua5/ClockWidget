@@ -64,7 +64,8 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
     public void update(Graphics g)
     {
         Graphics2D g2=(Graphics2D)g;
-        g.clearRect(0, 0, Settings.diameter, Settings.diameter);
+        g.setColor(new Color(0,0,0,0));
+        g.fillRect(0, 0, Settings.diameter, Settings.diameter);
         //figure out time
         double milli=System.currentTimeMillis()+Settings.timeOffset;
         double sec=milli/1000;
