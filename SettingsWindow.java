@@ -14,7 +14,7 @@ public class SettingsWindow extends JFrame
         //set title
         super("Settings");
         //make it closable
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         //make a layout
         this.setLayout(new BorderLayout());
         //set the window size
