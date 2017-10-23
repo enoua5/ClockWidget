@@ -2,12 +2,6 @@
  * Entry point of the program.
  * Initializes the canvas and frame, then starts and animation loop.
  * 
- * TODO:
- * Load in the settings from file before athe animation loop begins
- * 
- * Classes to add to project:
- * SettingsWindow
- * 
  * --Jacob Allen
  */
 
