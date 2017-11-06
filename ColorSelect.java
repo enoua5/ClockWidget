@@ -2,6 +2,9 @@
  * Brings up a color select menu when clicked
  * Sets the Setting value when selected
  */
+/*
+ * Add in all the settings
+ */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -39,22 +42,31 @@ public class ColorSelect implements ActionListener
                     Settings.faceColor=color;
                     break;
                 case HOUR_COLOR:
+                    Settings.hour.color=color;
                     break;
                 case MIN_COLOR:
+                    Settings.min.color=color;
                     break;
                 case SEC_COLOR:
+                    Settings.sec.color=color;
                     break;
                 case CARD_MARK_COLOR:
+                    Settings.cardinalMark.numberColor=color;
                     break;
                 case CARD_MARK_TICK_COLOR:
+                    Settings.cardinalMark.tickColor=color;
                     break;
                 case HOUR_MARK_COLOR:
+                    Settings.hourMark.numberColor=color;
                     break;
                 case HOUR_MARK_TICK_COLOR:
+                    Settings.hourMark.tickColor=color;
                     break;
                 case MIN_MARK_COLOR:
+                    Settings.minuteMark.numberColor=color;
                     break;
                 case MIN_MARK_TICK_COLOR:
+                    Settings.minuteMark.tickColor=color;
                     break;
             }
         }
