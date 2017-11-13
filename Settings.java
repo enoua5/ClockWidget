@@ -21,7 +21,7 @@ public class Settings
     }
     public static int diameter=200;
     
-    public static long timeOffset=6*60*60*1000; //6 hours
+    public static long timeOffset=0;
     
     public static Color faceColor=new Color(255,255,255);
     
