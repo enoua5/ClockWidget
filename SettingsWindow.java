@@ -104,7 +104,7 @@ public class SettingsWindow extends JFrame
         Slider sWid=new Slider("Second Hand Width", SettingField.SEC_WIDTH, 0, 20, (int)(Settings.sec.width));
         panel.add(sWid.label);
         panel.add(sWid.slider);
-        //OPTION: hour color
+        //OPTION: second color
         ColorSelect sColor=new ColorSelect("Second Hand Color", SettingField.SEC_COLOR, Settings.sec.color);
         panel.add(sColor.label);
         panel.add(sColor.button);
@@ -112,6 +112,9 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("CARDINAL MARKS"));
+        //OPTION: cardinal mark present
+        CheckBox cmPresent=new CheckBox("Cardinal Mark Present", SettingField.CARD_NUM_PRESENT, Settings.cardinalMark.hasNumber);
+        panel.add(cmPresent.check);
         //OPTION: cardinal font size
         Slider cFontSize=new Slider("Cardinal Mark Font Size", SettingField.CARD_MARK_FONT_SIZE, 0, 72, Settings.cardinalMark.font.getSize());
         panel.add(cFontSize.label);
@@ -131,10 +134,28 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("CARDINAL TICKS"));
+        //OPTION: cardinal tick present
+        CheckBox ctPresent=new CheckBox("Cardinal Tick Present", SettingField.CARD_TICK_PRESENT, Settings.cardinalMark.hasTick);
+        panel.add(ctPresent.check);
+        //OPTION: cardinal tick length
+        Slider ctLen=new Slider("Cardinal Tick Length", SettingField.CARD_MARK_TICK_LENGTH, 0, 100, (int)(Settings.cardinalMark.length*100));
+        panel.add(ctLen.label);
+        panel.add(ctLen.slider);
+        //OPTION: cardinal tick width
+        Slider ctWid=new Slider("Cardinal Tick Width", SettingField.CARD_MARK_TICK_WIDTH, 0, 20, (int)(Settings.cardinalMark.width));
+        panel.add(ctWid.label);
+        panel.add(ctWid.slider);
+        //OPTION: cardinal tick color
+        ColorSelect ctColor=new ColorSelect("Cardinal Tick Color", SettingField.CARD_MARK_TICK_COLOR, Settings.cardinalMark.tickColor);
+        panel.add(ctColor.label);
+        panel.add(ctColor.button);
         
         panel.add(new JSeparator());
         
         panel.add(new JLabel("HOUR MARKS"));
+        //OPTION: hour mark present
+        CheckBox hmPresent=new CheckBox("Hour Mark Present", SettingField.HOUR_NUM_PRESENT, Settings.hourMark.hasNumber);
+        panel.add(hmPresent.check);
         //OPTION: hour font size
         Slider hFontSize=new Slider("Hour Mark Font Size", SettingField.HOUR_MARK_FONT_SIZE, 0, 72, Settings.hourMark.font.getSize());
         panel.add(hFontSize.label);
@@ -154,17 +175,35 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("HOUR TICKS"));
+        //OPTION: hour tick present
+        CheckBox htPresent=new CheckBox("Hour Tick Present", SettingField.HOUR_TICK_PRESENT, Settings.hourMark.hasTick);
+        panel.add(htPresent.check);
+        //OPTION: hour tick length
+        Slider htLen=new Slider("Hour Tick Length", SettingField.HOUR_MARK_TICK_LENGTH, 0, 100, (int)(Settings.hourMark.length*100));
+        panel.add(htLen.label);
+        panel.add(htLen.slider);
+        //OPTION: hour tick width
+        Slider htWid=new Slider("Hour Tick Width", SettingField.HOUR_MARK_TICK_WIDTH, 0, 20, (int)(Settings.hourMark.width));
+        panel.add(htWid.label);
+        panel.add(htWid.slider);
+        //OPTION: hour tick color
+        ColorSelect htColor=new ColorSelect("Hour Tick Color", SettingField.HOUR_MARK_TICK_COLOR, Settings.hourMark.tickColor);
+        panel.add(htColor.label);
+        panel.add(htColor.button);
         
         panel.add(new JSeparator());
         
         panel.add(new JLabel("MINUTE MARKS"));
+        //OPTION: minute mark present
+        CheckBox mmPresent=new CheckBox("Minute Mark Present", SettingField.MIN_NUM_PRESENT, Settings.minuteMark.hasNumber);
+        panel.add(mmPresent.check);
         //OPTION: minute font size
         Slider mFontSize=new Slider("Minute Mark Font Size", SettingField.MIN_MARK_FONT_SIZE, 0, 72, Settings.minuteMark.font.getSize());
         panel.add(mFontSize.label);
         panel.add(mFontSize.slider);
         //OPTION: minute roman
-        CheckBox mRoman=new CheckBox("Use Roman Numerals", SettingField.MIN_MARK_ROMAN, Settings.minuteMark.roman);
-        panel.add(mRoman.check);
+        //CheckBox mRoman=new CheckBox("Use Roman Numerals", SettingField.MIN_MARK_ROMAN, Settings.minuteMark.roman);
+        //panel.add(mRoman.check);
         //OPTION: minute mark distance
         Slider mmDist=new Slider("Minute Mark Distance", SettingField.MIN_MARK_DIST, 0, 100, (int)(Settings.minuteMark.distance*100));
         panel.add(mmDist.label);
@@ -177,6 +216,21 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("MINUTE TICKS"));
+        //OPTION: minute tick present
+        CheckBox mtPresent=new CheckBox("Minute Tick Present", SettingField.MIN_TICK_PRESENT, Settings.minuteMark.hasTick);
+        panel.add(mtPresent.check);
+        //OPTION: minute tick length
+        Slider mtLen=new Slider("Minute Tick Length", SettingField.MIN_MARK_TICK_LENGTH, 0, 100, (int)(Settings.minuteMark.length*100));
+        panel.add(mtLen.label);
+        panel.add(mtLen.slider);
+        //OPTION: minute tick width
+        Slider mtWid=new Slider("Minute Tick Width", SettingField.MIN_MARK_TICK_WIDTH, 0, 20, (int)(Settings.minuteMark.width));
+        panel.add(mtWid.label);
+        panel.add(mtWid.slider);
+        //OPTION: minute tick color
+        ColorSelect mtColor=new ColorSelect("Minute Tick Color", SettingField.MIN_MARK_TICK_COLOR, Settings.minuteMark.tickColor);
+        panel.add(mtColor.label);
+        panel.add(mtColor.button);
         
         
 
