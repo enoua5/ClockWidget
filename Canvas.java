@@ -10,6 +10,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.awt.geom.*;
+import java.util.*;
 
 public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 {
@@ -64,9 +65,14 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
     public void update(Graphics g)
     {
         Graphics2D g2=(Graphics2D)g;
-        g.clearRect(0, 0, Settings.diameter, Settings.diameter);
+        g.setColor(new Color(0,0,0,0));
+        g.fillRect(0, 0, Settings.diameter, Settings.diameter);
         //figure out time
-        double milli=System.currentTimeMillis()+Settings.timeOffset;
+        long utc=System.currentTimeMillis();
+        int timeZoneOffset=TimeZone.getDefault().getOffset(utc);
+        
+        double milli=utc+timeZoneOffset+Settings.timeOffset;
+        
         double sec=milli/1000;
         double min=sec/60;
         double hour=min/60;
