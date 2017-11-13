@@ -4,10 +4,6 @@
  * 
  * --Jacob Allen
  */
-/*
- * Fixed the label name
- * added all the settings
- */
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -60,7 +56,7 @@ public class Slider implements ChangeListener
                 break;
                 
             case CARD_MARK_FONT_SIZE:
-                Settings.cardinalMark.font=Settings.cardinalMark.font.deriveFont(val);
+                Settings.cardinalMark.font=Settings.cardinalMark.font.deriveFont((float)val);
                 break;
             case CARD_MARK_DIST:
                 Settings.cardinalMark.distance=(double)val/100;
@@ -73,7 +69,7 @@ public class Slider implements ChangeListener
                 break;
                 
             case HOUR_MARK_FONT_SIZE:
-                Settings.hourMark.font=Settings.hourMark.font.deriveFont(val);
+                Settings.hourMark.font=Settings.hourMark.font.deriveFont((float)val);
                 break;
             case HOUR_MARK_DIST:
                 Settings.hourMark.distance=(double)val/100;
@@ -86,7 +82,7 @@ public class Slider implements ChangeListener
                 break;
                 
             case MIN_MARK_FONT_SIZE:
-                Settings.minuteMark.font=Settings.minuteMark.font.deriveFont(val);
+                Settings.minuteMark.font=Settings.minuteMark.font.deriveFont((float)val);
                 break;
             case MIN_MARK_DIST:
                 Settings.minuteMark.distance=(double)val/100;

@@ -1,9 +1,8 @@
 /*
  * Brings up a color select menu when clicked
  * Sets the Setting value when selected
- */
-/*
- * Add in all the settings
+ * 
+ * --Jacob Allen
  */
 import java.awt.*;
 import java.awt.event.*;

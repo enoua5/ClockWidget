@@ -4,22 +4,15 @@
  * --Jacob Allen
  */
 /*
- * Changed some label values
- */
-/*
  * TODO
  * TIME_OFFSET,
     
-    HOUR_COLOR, HOUR_PRESENT,
-    MIN_COLOR, MIN_PRESENT,
-    SEC_COLOR, SEC_PRESENT,
-    
-    CARD_MARK_FONT, CARD_MARK_FONT_EMP, CARD_MARK_FONT_SIZE, CARD_MARK_ROMAN, CARD_MARK_DIST,
-        CARD_MARK_COLOR, CARD_MARK_TICK_WIDTH, CARD_MARK_TICK_LENGTH, CARD_MARK_TICK_COLOR,
-    HOUR_MARK_FONT, HOUR_MARK_FONT_EMP, HOUR_MARK_FONT_SIZE, HOUR_MARK_ROMAN, HOUR_MARK_DIST,
-        HOUR_MARK_COLOR, HOUR_MARK_TICK_WIDTH, HOUR_MARK_TICK_LENGTH, HOUR_MARK_TICK_COLOR,
-    MIN_MARK_FONT, MIN_MARK_FONT_EMP, MIN_MARK_FONT_SIZE, MIN_MARK_ROMAN, MIN_MARK_DIST,
-        MIN_MARK_COLOR, MIN_MARK_TICK_WIDTH, MIN_MARK_TICK_LENGTH, MIN_MARK_TICK_COLOR
+    CARD_MARK_FONT, CARD_MARK_FONT_EMP,
+        CARD_MARK_TICK_WIDTH, CARD_MARK_TICK_LENGTH, CARD_MARK_TICK_COLOR,
+    HOUR_MARK_FONT, HOUR_MARK_FONT_EMP,
+        HOUR_MARK_TICK_WIDTH, HOUR_MARK_TICK_LENGTH, HOUR_MARK_TICK_COLOR,
+    MIN_MARK_FONT, MIN_MARK_FONT_EMP,
+        MIN_MARK_TICK_WIDTH, MIN_MARK_TICK_LENGTH, MIN_MARK_TICK_COLOR
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -44,7 +37,7 @@ public class SettingsWindow extends JFrame
         panel.setLayout(gLay);
         
         panel.setBorder(BorderFactory.createLineBorder(Color.black));
-        panel.setPreferredSize(new Dimension(width, 600));
+        panel.setPreferredSize(new Dimension(width, 2000));
         //add a scroll pane
         final JScrollPane scroll=new JScrollPane(panel);
         this.add(scroll, BorderLayout.CENTER);
@@ -62,6 +55,9 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("HOUR HAND"));
+        //OPTION: hour present
+        CheckBox hPresent=new CheckBox("Hour Hand Present", SettingField.HOUR_PRESENT, Settings.hour.visible);
+        panel.add(hPresent.check);
         //OPTION: hour length
         Slider hLen=new Slider("Hour Hand Length", SettingField.HOUR_LENGTH, 0, 100, (int)(Settings.hour.length*100));
         panel.add(hLen.label);
@@ -78,6 +74,9 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("MINUTE HAND"));
+        //OPTION: minute present
+        CheckBox mPresent=new CheckBox("Minute Hand Present", SettingField.MIN_PRESENT, Settings.min.visible);
+        panel.add(mPresent.check);
         //OPTION: minute length
         Slider mLen=new Slider("Minute Hand Length", SettingField.MIN_LENGTH, 0, 100, (int)(Settings.min.length*100));
         panel.add(mLen.label);
@@ -94,6 +93,9 @@ public class SettingsWindow extends JFrame
         panel.add(new JSeparator());
         
         panel.add(new JLabel("SECOND HAND"));
+        //OPTION: second present
+        CheckBox sPresent=new CheckBox("Second Hand Present", SettingField.SEC_PRESENT, Settings.sec.visible);
+        panel.add(sPresent.check);
         //OPTION: second length
         Slider sLen=new Slider("Second Hand Length", SettingField.SEC_LENGTH, 0, 100, (int)(Settings.sec.length*100));
         panel.add(sLen.label);
@@ -106,6 +108,75 @@ public class SettingsWindow extends JFrame
         ColorSelect sColor=new ColorSelect("Second Hand Color", SettingField.SEC_COLOR, Settings.sec.color);
         panel.add(sColor.label);
         panel.add(sColor.button);
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("CARDINAL MARKS"));
+        //OPTION: cardinal font size
+        Slider cFontSize=new Slider("Cardinal Mark Font Size", SettingField.CARD_MARK_FONT_SIZE, 0, 72, Settings.cardinalMark.font.getSize());
+        panel.add(cFontSize.label);
+        panel.add(cFontSize.slider);
+        //OPTION: cardinal roman
+        CheckBox cRoman=new CheckBox("Use Roman Numerals", SettingField.CARD_MARK_ROMAN, Settings.cardinalMark.roman);
+        panel.add(cRoman.check);
+        //OPTION: cardinal mark distance
+        Slider cmDist=new Slider("Cardinal Mark Distance", SettingField.CARD_MARK_DIST, 0, 100, (int)(Settings.cardinalMark.distance*100));
+        panel.add(cmDist.label);
+        panel.add(cmDist.slider);
+        //OPTION: cardinal mark color
+        ColorSelect cmColor=new ColorSelect("Cardinal Mark Color", SettingField.CARD_MARK_COLOR, Settings.cardinalMark.numberColor);
+        panel.add(cmColor.label);
+        panel.add(cmColor.button);
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("CARDINAL TICKS"));
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("HOUR MARKS"));
+        //OPTION: hour font size
+        Slider hFontSize=new Slider("Hour Mark Font Size", SettingField.HOUR_MARK_FONT_SIZE, 0, 72, Settings.hourMark.font.getSize());
+        panel.add(hFontSize.label);
+        panel.add(hFontSize.slider);
+        //OPTION: hour roman
+        CheckBox hRoman=new CheckBox("Use Roman Numerals", SettingField.HOUR_MARK_ROMAN, Settings.hourMark.roman);
+        panel.add(hRoman.check);
+        //OPTION: hour mark distance
+        Slider hmDist=new Slider("Hour Mark Distance", SettingField.HOUR_MARK_DIST, 0, 100, (int)(Settings.hourMark.distance*100));
+        panel.add(hmDist.label);
+        panel.add(hmDist.slider);
+        //OPTION: hour mark color
+        ColorSelect hmColor=new ColorSelect("Hour Mark Color", SettingField.HOUR_MARK_COLOR, Settings.hourMark.numberColor);
+        panel.add(hmColor.label);
+        panel.add(hmColor.button);
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("HOUR TICKS"));
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("MINUTE MARKS"));
+        //OPTION: minute font size
+        Slider mFontSize=new Slider("Minute Mark Font Size", SettingField.MIN_MARK_FONT_SIZE, 0, 72, Settings.minuteMark.font.getSize());
+        panel.add(mFontSize.label);
+        panel.add(mFontSize.slider);
+        //OPTION: minute roman
+        CheckBox mRoman=new CheckBox("Use Roman Numerals", SettingField.MIN_MARK_ROMAN, Settings.minuteMark.roman);
+        panel.add(mRoman.check);
+        //OPTION: minute mark distance
+        Slider mmDist=new Slider("Minute Mark Distance", SettingField.MIN_MARK_DIST, 0, 100, (int)(Settings.minuteMark.distance*100));
+        panel.add(mmDist.label);
+        panel.add(mmDist.slider);
+        //OPTION: minute mark color
+        ColorSelect mmColor=new ColorSelect("Minute Mark Color", SettingField.MIN_MARK_COLOR, Settings.minuteMark.numberColor);
+        panel.add(mmColor.label);
+        panel.add(mmColor.button);
+        
+        panel.add(new JSeparator());
+        
+        panel.add(new JLabel("MINUTE TICKS"));
         
         
 
