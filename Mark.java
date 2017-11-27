@@ -51,6 +51,11 @@ public class Mark implements Serializable
         this.roman=roman;
         this.distance=distance;
         this.numberColor=numberColor;
+        
+        //default tick
+        this.width=2;
+        this.length=4;
+        this.tickColor=new Color(0,0,0);
     }
     //just tick
     public Mark(int width, double length, Color tickColor)
@@ -61,5 +66,12 @@ public class Mark implements Serializable
         this.width=width;
         this.length=length;
         this.tickColor=tickColor;
+        
+        //default number
+        this.font=new Font("TimesRoman", Font.PLAIN, 16);
+        this.roman=false;
+        this.distance=0.8;
+        this.numberColor=new Color(0,0,0);
+        
     }
 }

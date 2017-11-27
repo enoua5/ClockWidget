@@ -33,29 +33,21 @@ public class Settings implements Serializable
         }
     public static void load()
     {
-        //read settings from file and update Settings
-        Scanner in = null;
-        try {
-            in = new Scanner(new File("settings.txt"));
-            List<>
-                while{
-                    
-                }
-    } catch (FileNotFoundException e) {
+        try{
+           in = new ObjectInputStream(new FileInputStream("settings.dat"));
+            
+            Settings me = (Settings) in.readObject();
+            Settings = me;
+        }catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         } finally {
-         in.close();   
-        } 
-        PrintWriter out = null;
-        try {
-            out = new PrintWriter(new FileOutputStream("settings.txt", true));
-            out.println(Settings);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } finally {
-            out.close();
+            try {
+                in.close();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
         }
-        
+    }
     public static int diameter=200;
     
     public static long timeOffset=0;
