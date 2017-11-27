@@ -54,46 +54,6 @@ public class Slider implements ChangeListener
             case SEC_WIDTH:
                 Settings.sec.width=val;
                 break;
-                
-            case CARD_MARK_FONT_SIZE:
-                Settings.cardinalMark.font=Settings.cardinalMark.font.deriveFont((float)val);
-                break;
-            case CARD_MARK_DIST:
-                Settings.cardinalMark.distance=(double)val/100;
-                break;
-            case CARD_MARK_TICK_WIDTH:
-                Settings.cardinalMark.width=val;
-                break;
-            case CARD_MARK_TICK_LENGTH:
-                Settings.cardinalMark.length=(double)val/100;
-                break;
-                
-            case HOUR_MARK_FONT_SIZE:
-                Settings.hourMark.font=Settings.hourMark.font.deriveFont((float)val);
-                break;
-            case HOUR_MARK_DIST:
-                Settings.hourMark.distance=(double)val/100;
-                break;
-            case HOUR_MARK_TICK_WIDTH:
-                Settings.hourMark.width=val;
-                break;
-            case HOUR_MARK_TICK_LENGTH:
-                Settings.hourMark.length=(double)val/100;
-                break;
-                
-            case MIN_MARK_FONT_SIZE:
-                Settings.minuteMark.font=Settings.minuteMark.font.deriveFont((float)val);
-                break;
-            case MIN_MARK_DIST:
-                Settings.minuteMark.distance=(double)val/100;
-                break;
-            case MIN_MARK_TICK_WIDTH:
-                Settings.minuteMark.width=val;
-                break;
-            case MIN_MARK_TICK_LENGTH:
-                Settings.minuteMark.length=(double)val/100;
-                break;
-            
         }
     }
 }

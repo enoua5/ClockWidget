@@ -49,20 +49,11 @@ public class ColorSelect implements ActionListener
                 case SEC_COLOR:
                     Settings.sec.color=color;
                     break;
-                case CARD_MARK_COLOR:
-                    Settings.cardinalMark.numberColor=color;
-                    break;
                 case CARD_MARK_TICK_COLOR:
                     Settings.cardinalMark.tickColor=color;
                     break;
-                case HOUR_MARK_COLOR:
-                    Settings.hourMark.numberColor=color;
-                    break;
                 case HOUR_MARK_TICK_COLOR:
                     Settings.hourMark.tickColor=color;
-                    break;
-                case MIN_MARK_COLOR:
-                    Settings.minuteMark.numberColor=color;
                     break;
                 case MIN_MARK_TICK_COLOR:
                     Settings.minuteMark.tickColor=color;

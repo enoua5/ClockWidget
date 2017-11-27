@@ -5,11 +5,7 @@
  */
 /*
  * TODO
- * TIME_OFFSET,
-    
-    CARD_MARK_FONT, CARD_MARK_FONT_EMP,
-    HOUR_MARK_FONT, HOUR_MARK_FONT_EMP,
-    MIN_MARK_FONT, MIN_MARK_FONT_EMP,
+ * TIME_OFFSET
  */
 import java.awt.*;
 import java.awt.event.*;
@@ -112,10 +108,10 @@ public class SettingsWindow extends JFrame
         //OPTION: cardinal mark present
         CheckBox cmPresent=new CheckBox("Cardinal Mark Present", SettingField.CARD_NUM_PRESENT, Settings.cardinalMark.hasNumber);
         panel.add(cmPresent.check);
-        //OPTION: cardinal font size
-        Slider cFontSize=new Slider("Cardinal Mark Font Size", SettingField.CARD_MARK_FONT_SIZE, 0, 72, Settings.cardinalMark.font.getSize());
-        panel.add(cFontSize.label);
-        panel.add(cFontSize.slider);
+        //OPTION: cardinal font
+        FontSelect cmFont=new FontSelect("Cardinal Mark Font", SettingField.CARD_MARK_FONT, Settings.cardinalMark.font, Settings.cardinalMark.numberColor);
+        panel.add(cmFont.label);
+        panel.add(cmFont.button);
         //OPTION: cardinal roman
         CheckBox cRoman=new CheckBox("Use Roman Numerals", SettingField.CARD_MARK_ROMAN, Settings.cardinalMark.roman);
         panel.add(cRoman.check);
@@ -123,10 +119,6 @@ public class SettingsWindow extends JFrame
         Slider cmDist=new Slider("Cardinal Mark Distance", SettingField.CARD_MARK_DIST, 0, 100, (int)(Settings.cardinalMark.distance*100));
         panel.add(cmDist.label);
         panel.add(cmDist.slider);
-        //OPTION: cardinal mark color
-        ColorSelect cmColor=new ColorSelect("Cardinal Mark Color", SettingField.CARD_MARK_COLOR, Settings.cardinalMark.numberColor);
-        panel.add(cmColor.label);
-        panel.add(cmColor.button);
         
         panel.add(new JSeparator());
         
@@ -153,10 +145,10 @@ public class SettingsWindow extends JFrame
         //OPTION: hour mark present
         CheckBox hmPresent=new CheckBox("Hour Mark Present", SettingField.HOUR_NUM_PRESENT, Settings.hourMark.hasNumber);
         panel.add(hmPresent.check);
-        //OPTION: hour font size
-        Slider hFontSize=new Slider("Hour Mark Font Size", SettingField.HOUR_MARK_FONT_SIZE, 0, 72, Settings.hourMark.font.getSize());
-        panel.add(hFontSize.label);
-        panel.add(hFontSize.slider);
+        //OPTION: hour font
+        FontSelect hmFont=new FontSelect("Hour Mark Font", SettingField.HOUR_MARK_FONT, Settings.hourMark.font, Settings.hourMark.numberColor);
+        panel.add(hmFont.label);
+        panel.add(hmFont.button);
         //OPTION: hour roman
         CheckBox hRoman=new CheckBox("Use Roman Numerals", SettingField.HOUR_MARK_ROMAN, Settings.hourMark.roman);
         panel.add(hRoman.check);
@@ -164,10 +156,6 @@ public class SettingsWindow extends JFrame
         Slider hmDist=new Slider("Hour Mark Distance", SettingField.HOUR_MARK_DIST, 0, 100, (int)(Settings.hourMark.distance*100));
         panel.add(hmDist.label);
         panel.add(hmDist.slider);
-        //OPTION: hour mark color
-        ColorSelect hmColor=new ColorSelect("Hour Mark Color", SettingField.HOUR_MARK_COLOR, Settings.hourMark.numberColor);
-        panel.add(hmColor.label);
-        panel.add(hmColor.button);
         
         panel.add(new JSeparator());
         
@@ -194,10 +182,10 @@ public class SettingsWindow extends JFrame
         //OPTION: minute mark present
         CheckBox mmPresent=new CheckBox("Minute Mark Present", SettingField.MIN_NUM_PRESENT, Settings.minuteMark.hasNumber);
         panel.add(mmPresent.check);
-        //OPTION: minute font size
-        Slider mFontSize=new Slider("Minute Mark Font Size", SettingField.MIN_MARK_FONT_SIZE, 0, 72, Settings.minuteMark.font.getSize());
-        panel.add(mFontSize.label);
-        panel.add(mFontSize.slider);
+        //OPTION: minute font
+        FontSelect mmFont=new FontSelect("Minute Mark Font", SettingField.MIN_MARK_FONT, Settings.minuteMark.font, Settings.minuteMark.numberColor);
+        panel.add(mmFont.label);
+        panel.add(mmFont.button);
         //OPTION: minute roman
         //CheckBox mRoman=new CheckBox("Use Roman Numerals", SettingField.MIN_MARK_ROMAN, Settings.minuteMark.roman);
         //panel.add(mRoman.check);
@@ -205,10 +193,6 @@ public class SettingsWindow extends JFrame
         Slider mmDist=new Slider("Minute Mark Distance", SettingField.MIN_MARK_DIST, 0, 100, (int)(Settings.minuteMark.distance*100));
         panel.add(mmDist.label);
         panel.add(mmDist.slider);
-        //OPTION: minute mark color
-        ColorSelect mmColor=new ColorSelect("Minute Mark Color", SettingField.MIN_MARK_COLOR, Settings.minuteMark.numberColor);
-        panel.add(mmColor.label);
-        panel.add(mmColor.button);
         
         panel.add(new JSeparator());
         
@@ -230,7 +214,6 @@ public class SettingsWindow extends JFrame
         panel.add(mtColor.button);
         
         
-
         //put it on the screen
         this.setVisible(true);
     }
