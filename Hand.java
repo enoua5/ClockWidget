@@ -4,7 +4,7 @@
  * --Jacob Allen
  */
 import java.awt.Color;
-public class Hand
+public class Hand implements Serializable
 {
     public int width;
     public double length;
