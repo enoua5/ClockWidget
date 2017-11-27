@@ -13,7 +13,15 @@ public class Settings
 {
     public static void save()
     {
-        //save these settings to file
+        PrintWriter = null;
+        try {
+            out = new PrintWriter("settings.txt");
+            out.println(Settings);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            out.close();
+        }
     }
     public static void load()
     {
