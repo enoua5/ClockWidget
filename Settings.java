@@ -8,6 +8,10 @@
  * 
  * --Jacob Allen
  */
+/*
+* Added contents to save method so it creates a file called settings.dat and saves settings to the file.
+* --Michael Kent
+*/
 import java.awt.*;
 public class Settings implements Serializable
 {
