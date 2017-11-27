@@ -8,13 +8,29 @@
  * 
  * --Jacob Allen
  */
+/*
+* Added contents to save method so it creates a file called settings.dat and saves settings to the file.
+* --Michael Kent
+*/
 import java.awt.*;
-public class Settings
+public class Settings implements Serializable
 {
     public static void save()
     {
-        //save these settings to file
-    }
+        ObjectOutputStream out = null;
+        
+        try {
+            out = new ObjectOutputStream(new FileOutputStream("settings.dat"));
+            out.writeObject(Settings);
+        } catch {(IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     public static void load()
     {
         try{
@@ -31,7 +47,6 @@ public class Settings
                 e.printStackTrace();
             }
         }
-    }
     }
     public static int diameter=200;
     
