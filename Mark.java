@@ -8,7 +8,7 @@
  * --Jacob Allen
  */
 import java.awt.*;
-public class Mark
+public class Mark implements Serializable
 {
     //numbering
     public boolean hasNumber;
