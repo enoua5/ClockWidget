@@ -7,6 +7,10 @@
  * 
  * --Jacob Allen
  */
+/*
+* Added "implements Serializable" to public class Mark so it can be put into the settings file.
+* --Michael Kent
+*/
 import java.awt.*;
 public class Mark implements Serializable
 {
