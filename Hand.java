@@ -3,6 +3,10 @@
  * 
  * --Jacob Allen
  */
+/*
+* Added "implements Serializable" to public class Hand so it can be put into the settings.dat file.
+* --Michael Kent
+*/
 import java.awt.Color;
 public class Hand implements Serializable
 {
