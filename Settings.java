@@ -9,24 +9,49 @@
  * --Jacob Allen
  */
 import java.awt.*;
-public class Settings
+public class Settings implements Serializable
 {
     public static void save()
     {
-        PrintWriter = null;
+        ObjectOutputStream out = null;
+        
         try {
-            out = new PrintWriter("settings.txt");
+            out = new ObjectOutputStream(new FileOutputStream("settings.dat"));
+            out.writeObject(Settings);
+        } catch {(IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    public static void load()
+    {
+        //read settings from file and update Settings
+        Scanner in = null;
+        try {
+            in = new Scanner(new File("settings.txt"));
+            List<>
+                while{
+                    
+                }
+    } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+         in.close();   
+        } 
+        PrintWriter out = null;
+        try {
+            out = new PrintWriter(new FileOutputStream("settings.txt", true));
             out.println(Settings);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } finally {
             out.close();
         }
-    }
-    public static void load()
-    {
-        //read settings from file and update Settings
-    }
+        
     public static int diameter=200;
     
     public static long timeOffset=0;
