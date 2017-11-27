@@ -17,7 +17,21 @@ public class Settings
     }
     public static void load()
     {
-        //read settings from file and update Settings
+        try{
+           in = new ObjectInputStream(new FileInputStream("settings.dat"));
+            
+            Settings me = (Settings) in.readObject();
+            Settings = me;
+        }catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                in.close();
+            }catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
     }
     public static int diameter=200;
     
