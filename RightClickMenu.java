@@ -7,6 +7,7 @@
  */
 import javax.swing.*;
 import java.awt.event.*;
+import java.io.*;
 
 public class RightClickMenu extends JPopupMenu {
 	public RightClickMenu() {
@@ -15,6 +16,14 @@ public class RightClickMenu extends JPopupMenu {
 				// code to run when settings is clicked
 				new SettingsWindow();
 			}
+		}));
+		this.add(new JMenuItem(new AbstractAction("Reset Settings") {
+		  public void actionPerformed(ActionEvent e) {
+		    // code to run when reset is clicked
+		    File file=new File("settings.dat");
+		    file.delete();
+		    new Settings();
+		  }
 		}));
 		this.add(new JMenuItem(new AbstractAction("Close") {
 			public void actionPerformed(ActionEvent e) {
