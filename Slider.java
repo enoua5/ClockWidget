@@ -75,9 +75,6 @@ public class Slider implements ChangeListener
                 Settings.hourMark.length=(double)val/100;
                 break;
                 
-            case MIN_MARK_FONT_SIZE:
-                Settings.minuteMark.font=Settings.minuteMark.font.deriveFont(val);
-                break;
             case MIN_MARK_DIST:
                 Settings.minuteMark.distance=(double)val/100;
                 break;
