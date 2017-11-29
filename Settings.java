@@ -45,14 +45,15 @@ public class Settings implements Serializable {
 		try {
 
 			in = new ObjectInputStream(new FileInputStream("settings.dat"));
-
 			Settings me = (Settings) in.readObject();
 			current = me;
-		} catch (IOException | ClassNotFoundException e) {
-			e.printStackTrace();
+		} catch (Exception e) {
+			return;
 		} finally {
 			try {
-				in.close();
+				if (in != null) {
+					in.close();
+				}
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -69,14 +70,14 @@ public class Settings implements Serializable {
 	public Hand min = new Hand(0.9, 6, new Color(0, 0, 0), true);
 	public Hand sec = new Hand(0.8, 4, new Color(255, 0, 0), false);
 
-	public Mark cardinalMark = new Mark(new Font("TimesRoman", Font.BOLD, 32), false, 0.8, new Color(0, 0, 0), 3,
-			0.05, new Color(0, 0, 0));// 3,6,9,12
+	public Mark cardinalMark = new Mark(new Font("TimesRoman", Font.BOLD, 32), false, 0.8, new Color(0, 0, 0), 3, 0.05,
+			new Color(0, 0, 0));// 3,6,9,12
 	public Mark hourMark = new Mark(3, 0.1, new Color(0, 0, 0));
 	public Mark minuteMark = new Mark(2, 0.05, new Color(0, 0, 0));
-	
+
 	public static Settings current;
-	public Settings()
-	{
-	    current=this;
+
+	public Settings() {
+		current = this;
 	}
 }

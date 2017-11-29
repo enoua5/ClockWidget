@@ -10,7 +10,8 @@ public class Main {
 	public static Frame frame;
 
 	public static void main(String[] args) throws java.lang.InterruptedException {
-		// should be self explanitory
+		// should be self explanatory
+		new Settings();
 		Settings.load();
 		// set up and launch widget
 		canvas = new Canvas();
