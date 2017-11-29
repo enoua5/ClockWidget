@@ -62,12 +62,12 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 	public void update(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g;
 		g.setColor(new Color(0, 0, 0, 0));
-		g.fillRect(0, 0, Settings.diameter, Settings.diameter);
+		g.fillRect(0, 0, Settings.current.diameter, Settings.current.diameter);
 		// figure out time
 		long utc = System.currentTimeMillis();
 		int timeZoneOffset = TimeZone.getDefault().getOffset(utc);
 
-		double milli = utc + timeZoneOffset + Settings.timeOffset;
+		double milli = utc + timeZoneOffset + Settings.current.timeOffset;
 
 		double sec = milli / 1000;
 		double min = sec / 60;
@@ -79,50 +79,50 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 		min %= 60;
 		hour %= 12;
 		// round down the ones whose hand does not move smoothly
-		if (!Settings.sec.smooth)
+		if (!Settings.current.sec.smooth)
 			sec = Math.floor(sec);
-		if (!Settings.min.smooth)
+		if (!Settings.current.min.smooth)
 			min = Math.floor(min);
-		if (!Settings.hour.smooth)
+		if (!Settings.current.hour.smooth)
 			hour = Math.floor(hour);
 		// draw the face
-		g.setColor(Settings.faceColor);
-		g.fillOval(0, 0, Settings.diameter, Settings.diameter);
+		g.setColor(Settings.current.faceColor);
+		g.fillOval(0, 0, Settings.current.diameter, Settings.current.diameter);
 		// draw the numbers
-		int rad = Settings.diameter / 2;
+		int rad = Settings.current.diameter / 2;
 		// 3, 6, 9, 12
 		for (int n = 3; n <= 12; n += 3) {
 			// find angle
 			double a = (((double) n / 12) * 2 * Math.PI);
 			// tick mark
-			if (Settings.cardinalMark.hasTick) {
+			if (Settings.current.cardinalMark.hasTick) {
 				// find c(1-onnection points
 				int x1 = (int) (rad + Math.sin(a) * rad);
 				int y1 = (int) (rad - Math.cos(a) * rad);
 
-				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.cardinalMark.length)));
-				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.cardinalMark.length)));
+				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.current.cardinalMark.length)));
+				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.current.cardinalMark.length)));
 				// draw it
-				g.setColor(Settings.cardinalMark.tickColor);
-				g2.setStroke(new BasicStroke(Settings.cardinalMark.width));
+				g.setColor(Settings.current.cardinalMark.tickColor);
+				g2.setStroke(new BasicStroke(Settings.current.cardinalMark.width));
 				g2.drawLine(x1, y1, x2, y2);
 			}
 			// number
-			if (Settings.cardinalMark.hasNumber) {
+			if (Settings.current.cardinalMark.hasNumber) {
 				// find text draw point
-				int x = (int) (rad + Math.sin(a) * (rad * Settings.cardinalMark.distance));
-				int y = (int) (rad - Math.cos(a) * (rad * Settings.cardinalMark.distance));
+				int x = (int) (rad + Math.sin(a) * (rad * Settings.current.cardinalMark.distance));
+				int y = (int) (rad - Math.cos(a) * (rad * Settings.current.cardinalMark.distance));
 				// find the correct text
 				String number = "";
-				if (Settings.cardinalMark.roman) {
+				if (Settings.current.cardinalMark.roman) {
 					String[] romanNumbers = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI",
 							"XII" };
 					number = romanNumbers[n - 1];
 				} else
 					number = n + "";
 				// draw it
-				g.setColor(Settings.cardinalMark.numberColor);
-				drawStringCentered(g, number, new Point(x, y), Settings.cardinalMark.font);
+				g.setColor(Settings.current.cardinalMark.numberColor);
+				drawStringCentered(g, number, new Point(x, y), Settings.current.cardinalMark.font);
 			}
 		}
 		// all hour marks
@@ -133,34 +133,34 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 			// find angle
 			double a = (((double) n / 12) * 2 * Math.PI);
 			// tick mark
-			if (Settings.hourMark.hasTick) {
+			if (Settings.current.hourMark.hasTick) {
 				// find connection points
 				int x1 = (int) (rad + Math.sin(a) * rad);
 				int y1 = (int) (rad - Math.cos(a) * rad);
 
-				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.hourMark.length)));
-				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.hourMark.length)));
+				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.current.hourMark.length)));
+				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.current.hourMark.length)));
 				// draw it
-				g.setColor(Settings.hourMark.tickColor);
-				g2.setStroke(new BasicStroke(Settings.hourMark.width));
+				g.setColor(Settings.current.hourMark.tickColor);
+				g2.setStroke(new BasicStroke(Settings.current.hourMark.width));
 				g2.drawLine(x1, y1, x2, y2);
 			}
 			// number
-			if (Settings.hourMark.hasNumber) {
+			if (Settings.current.hourMark.hasNumber) {
 				// find text draw point
-				int x = (int) (rad + Math.sin(a) * (rad * Settings.hourMark.distance));
-				int y = (int) (rad - Math.cos(a) * (rad * Settings.hourMark.distance));
+				int x = (int) (rad + Math.sin(a) * (rad * Settings.current.hourMark.distance));
+				int y = (int) (rad - Math.cos(a) * (rad * Settings.current.hourMark.distance));
 				// find the correct text
 				String number = "";
-				if (Settings.hourMark.roman) {
+				if (Settings.current.hourMark.roman) {
 					String[] romanNumbers = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI",
 							"XII" };
 					number = romanNumbers[n - 1];
 				} else
 					number = n + "";
 				// draw it
-				g.setColor(Settings.hourMark.numberColor);
-				drawStringCentered(g, number, new Point(x, y), Settings.hourMark.font);
+				g.setColor(Settings.current.hourMark.numberColor);
+				drawStringCentered(g, number, new Point(x, y), Settings.current.hourMark.font);
 			}
 		}
 		// minute marks
@@ -171,64 +171,64 @@ public class Canvas extends JPanel implements MouseListener, MouseMotionListener
 			// find angle
 			double a = (((double) n / 60) * 2 * Math.PI);
 			// tick mark
-			if (Settings.minuteMark.hasTick) {
+			if (Settings.current.minuteMark.hasTick) {
 				// find connection points
 				int x1 = (int) (rad + Math.sin(a) * rad);
 				int y1 = (int) (rad - Math.cos(a) * rad);
 
-				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.minuteMark.length)));
-				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.minuteMark.length)));
+				int x2 = (int) (rad + Math.sin(a) * (rad * (1 - Settings.current.minuteMark.length)));
+				int y2 = (int) (rad - Math.cos(a) * (rad * (1 - Settings.current.minuteMark.length)));
 				// draw it
-				g.setColor(Settings.minuteMark.tickColor);
-				g2.setStroke(new BasicStroke(Settings.minuteMark.width));
+				g.setColor(Settings.current.minuteMark.tickColor);
+				g2.setStroke(new BasicStroke(Settings.current.minuteMark.width));
 				g2.drawLine(x1, y1, x2, y2);
 			}
 			// number
-			if (Settings.minuteMark.hasNumber) {
+			if (Settings.current.minuteMark.hasNumber) {
 				// find text draw point
-				int x = (int) (rad + Math.sin(a) * (rad * Settings.minuteMark.distance));
-				int y = (int) (rad - Math.cos(a) * (rad * Settings.minuteMark.distance));
+				int x = (int) (rad + Math.sin(a) * (rad * Settings.current.minuteMark.distance));
+				int y = (int) (rad - Math.cos(a) * (rad * Settings.current.minuteMark.distance));
 				// find the correct text
 				String number = "";
-				if (Settings.minuteMark.roman) {
+				if (Settings.current.minuteMark.roman) {
 					// no.
 				} else
 					number = n + "";
 				// draw it
-				g.setColor(Settings.minuteMark.numberColor);
-				drawStringCentered(g, number, new Point(x, y), Settings.minuteMark.font);
+				g.setColor(Settings.current.minuteMark.numberColor);
+				drawStringCentered(g, number, new Point(x, y), Settings.current.minuteMark.font);
 			}
 		}
 		// draw the hands
 		double a, x, y;
-		if (Settings.hour.visible) {
+		if (Settings.current.hour.visible) {
 			// find angle of hour hand
 			a = ((hour / 12) * 2 * Math.PI);
-			x = rad + Math.sin(a) * (rad * Settings.hour.length);
-			y = rad - Math.cos(a) * (rad * Settings.hour.length);
+			x = rad + Math.sin(a) * (rad * Settings.current.hour.length);
+			y = rad - Math.cos(a) * (rad * Settings.current.hour.length);
 			// draw it
-			g.setColor(Settings.hour.color);
-			g2.setStroke(new BasicStroke(Settings.hour.width));
+			g.setColor(Settings.current.hour.color);
+			g2.setStroke(new BasicStroke(Settings.current.hour.width));
 			g2.drawLine(rad, rad, (int) x, (int) y);
 		}
-		if (Settings.min.visible) {
+		if (Settings.current.min.visible) {
 			// find angle of minute hand
 			a = (((double) min / 60) * 2 * Math.PI);
-			x = rad + Math.sin(a) * (rad * Settings.min.length);
-			y = rad - Math.cos(a) * (rad * Settings.min.length);
+			x = rad + Math.sin(a) * (rad * Settings.current.min.length);
+			y = rad - Math.cos(a) * (rad * Settings.current.min.length);
 			// draw it
-			g.setColor(Settings.min.color);
-			g2.setStroke(new BasicStroke(Settings.min.width));
+			g.setColor(Settings.current.min.color);
+			g2.setStroke(new BasicStroke(Settings.current.min.width));
 			g2.drawLine(rad, rad, (int) x, (int) y);
 		}
-		if (Settings.sec.visible) {
+		if (Settings.current.sec.visible) {
 			// find angle of second hand
 			a = (((double) sec / 60) * 2 * Math.PI);
-			x = rad + Math.sin(a) * (rad * Settings.sec.length);
-			y = rad - Math.cos(a) * (rad * Settings.sec.length);
+			x = rad + Math.sin(a) * (rad * Settings.current.sec.length);
+			y = rad - Math.cos(a) * (rad * Settings.current.sec.length);
 			// draw it
-			g.setColor(Settings.sec.color);
-			g2.setStroke(new BasicStroke(Settings.sec.width));
+			g.setColor(Settings.current.sec.color);
+			g2.setStroke(new BasicStroke(Settings.current.sec.width));
 			g2.drawLine(rad, rad, (int) x, (int) y);
 		}
 	}

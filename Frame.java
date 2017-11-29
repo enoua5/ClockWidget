@@ -20,7 +20,7 @@ public class Frame extends JFrame {
 		// add canvas into frame
 		this.c = c;
 		double r = c.getRatio();
-		this.c.setPreferredSize(new Dimension(Settings.diameter, Settings.diameter));
+		this.c.setPreferredSize(new Dimension(Settings.current.diameter, Settings.current.diameter));
 		this.add(c);
 		// make it closable
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

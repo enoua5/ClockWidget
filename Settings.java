@@ -27,7 +27,7 @@ public class Settings implements Serializable {
 
 		try {
 			out = new ObjectOutputStream(new FileOutputStream("settings.dat"));
-			out.writeObject(Settings);
+			out.writeObject(current);
 		} catch (IOException e) {
 			e.printStackTrace();
 		} finally {
@@ -47,7 +47,7 @@ public class Settings implements Serializable {
 			in = new ObjectInputStream(new FileInputStream("settings.dat"));
 
 			Settings me = (Settings) in.readObject();
-			Settings = me;
+			current = me;
 		} catch (IOException | ClassNotFoundException e) {
 			e.printStackTrace();
 		} finally {
@@ -59,18 +59,24 @@ public class Settings implements Serializable {
 		}
 	}
 
-	public static int diameter = 200;
+	public int diameter = 200;
 
-	public static long timeOffset = 0;
+	public long timeOffset = 0;
 
-	public static Color faceColor = new Color(255, 255, 255);
+	public Color faceColor = new Color(255, 255, 255);
 
-	public static Hand hour = new Hand(0.5, 10, new Color(0, 0, 0), true);
-	public static Hand min = new Hand(0.9, 6, new Color(0, 0, 0), true);
-	public static Hand sec = new Hand(0.8, 4, new Color(255, 0, 0), false);
+	public Hand hour = new Hand(0.5, 10, new Color(0, 0, 0), true);
+	public Hand min = new Hand(0.9, 6, new Color(0, 0, 0), true);
+	public Hand sec = new Hand(0.8, 4, new Color(255, 0, 0), false);
 
-	public static Mark cardinalMark = new Mark(new Font("TimesRoman", Font.BOLD, 32), false, 0.8, new Color(0, 0, 0), 3,
+	public Mark cardinalMark = new Mark(new Font("TimesRoman", Font.BOLD, 32), false, 0.8, new Color(0, 0, 0), 3,
 			0.05, new Color(0, 0, 0));// 3,6,9,12
-	public static Mark hourMark = new Mark(3, 0.1, new Color(0, 0, 0));
-	public static Mark minuteMark = new Mark(2, 0.05, new Color(0, 0, 0));
+	public Mark hourMark = new Mark(3, 0.1, new Color(0, 0, 0));
+	public Mark minuteMark = new Mark(2, 0.05, new Color(0, 0, 0));
+	
+	public static Settings current;
+	public Settings()
+	{
+	    current=this;
+	}
 }

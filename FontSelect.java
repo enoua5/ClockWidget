@@ -1,7 +1,7 @@
 
 /*
  * For setting the fonts
- * Changes Settings value on change
+ * Changes Settings.current value on change
  * 
  * --Jacob Allen
  */
@@ -45,16 +45,16 @@ public class FontSelect implements ActionListener {
 			button.setForeground(color);
 			switch (field) {
 			case CARD_MARK_FONT:
-				Settings.cardinalMark.font = font;
-				Settings.cardinalMark.numberColor = color;
+				Settings.current.cardinalMark.font = font;
+				Settings.current.cardinalMark.numberColor = color;
 				break;
 			case HOUR_MARK_FONT:
-				Settings.hourMark.font = font;
-				Settings.hourMark.numberColor = color;
+				Settings.current.hourMark.font = font;
+				Settings.current.hourMark.numberColor = color;
 				break;
 			case MIN_MARK_FONT:
-				Settings.minuteMark.font = font;
-				Settings.minuteMark.numberColor = color;
+				Settings.current.minuteMark.font = font;
+				Settings.current.minuteMark.numberColor = color;
 				break;
 			}
 		}

@@ -26,42 +26,42 @@ public class CheckBox implements ChangeListener {
 		boolean val = check.isSelected();
 		switch (field) {
 		case HOUR_PRESENT:
-			Settings.hour.visible = val;
+			Settings.current.hour.visible = val;
 			break;
 		case MIN_PRESENT:
-			Settings.min.visible = val;
+			Settings.current.min.visible = val;
 			break;
 		case SEC_PRESENT:
-			Settings.sec.visible = val;
+			Settings.current.sec.visible = val;
 			break;
 
 		case CARD_MARK_ROMAN:
-			Settings.cardinalMark.roman = val;
+			Settings.current.cardinalMark.roman = val;
 			break;
 		case HOUR_MARK_ROMAN:
-			Settings.hourMark.roman = val;
+			Settings.current.hourMark.roman = val;
 			break;
 		case MIN_MARK_ROMAN:
-			Settings.minuteMark.roman = val;
+			Settings.current.minuteMark.roman = val;
 			break;
 
 		case CARD_NUM_PRESENT:
-			Settings.cardinalMark.hasNumber = val;
+			Settings.current.cardinalMark.hasNumber = val;
 			break;
 		case CARD_TICK_PRESENT:
-			Settings.cardinalMark.hasTick = val;
+			Settings.current.cardinalMark.hasTick = val;
 			break;
 		case HOUR_NUM_PRESENT:
-			Settings.hourMark.hasNumber = val;
+			Settings.current.hourMark.hasNumber = val;
 			break;
 		case HOUR_TICK_PRESENT:
-			Settings.hourMark.hasTick = val;
+			Settings.current.hourMark.hasTick = val;
 			break;
 		case MIN_NUM_PRESENT:
-			Settings.minuteMark.hasNumber = val;
+			Settings.current.minuteMark.hasNumber = val;
 			break;
 		case MIN_TICK_PRESENT:
-			Settings.minuteMark.hasTick = val;
+			Settings.current.minuteMark.hasTick = val;
 			break;
 		}
 	}

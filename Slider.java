@@ -1,6 +1,6 @@
 /*
  * Slider for the setting
- * Changes Settings value on change
+ * Changes Settings.current value on change
  * 
  * --Jacob Allen
  */
@@ -30,59 +30,59 @@ public class Slider implements ChangeListener
         switch(field)
         {
             case DIAMETER:
-                Settings.diameter=val;
+                Settings.current.diameter=val;
                 Main.frame.setSize(val, val);
                 break;
                 
             case HOUR_LENGTH:
-                Settings.hour.length=(double)val/100;
+                Settings.current.hour.length=(double)val/100;
                 break;
             case HOUR_WIDTH:
-                Settings.hour.width=val;
+                Settings.current.hour.width=val;
                 break;
                 
             case MIN_LENGTH:
-                Settings.min.length=(double)val/100;
+                Settings.current.min.length=(double)val/100;
                 break;
             case MIN_WIDTH:
-                Settings.min.width=val;
+                Settings.current.min.width=val;
                 break;
                 
             case SEC_LENGTH:
-                Settings.sec.length=(double)val/100;
+                Settings.current.sec.length=(double)val/100;
                 break;
             case SEC_WIDTH:
-                Settings.sec.width=val;
+                Settings.current.sec.width=val;
                 break;
                  
             case CARD_MARK_DIST:
-                Settings.cardinalMark.distance=(double)val/100;
+                Settings.current.cardinalMark.distance=(double)val/100;
                 break;
             case CARD_MARK_TICK_WIDTH:
-                Settings.cardinalMark.width=val;
+                Settings.current.cardinalMark.width=val;
                 break;
             case CARD_MARK_TICK_LENGTH:
-                Settings.cardinalMark.length=(double)val/100;
+                Settings.current.cardinalMark.length=(double)val/100;
                 break;
                 
             case HOUR_MARK_DIST:
-                Settings.hourMark.distance=(double)val/100;
+                Settings.current.hourMark.distance=(double)val/100;
                 break;
             case HOUR_MARK_TICK_WIDTH:
-                Settings.hourMark.width=val;
+                Settings.current.hourMark.width=val;
                 break;
             case HOUR_MARK_TICK_LENGTH:
-                Settings.hourMark.length=(double)val/100;
+                Settings.current.hourMark.length=(double)val/100;
                 break;
                 
             case MIN_MARK_DIST:
-                Settings.minuteMark.distance=(double)val/100;
+                Settings.current.minuteMark.distance=(double)val/100;
                 break;
             case MIN_MARK_TICK_WIDTH:
-                Settings.minuteMark.width=val;
+                Settings.current.minuteMark.width=val;
                 break;
             case MIN_MARK_TICK_LENGTH:
-                Settings.minuteMark.length=(double)val/100;
+                Settings.current.minuteMark.length=(double)val/100;
                 break;
         }
     }

@@ -36,25 +36,25 @@ public class ColorSelect implements ActionListener {
 			button.setBackground(color);
 			switch (field) {
 			case FACE_COLOR:
-				Settings.faceColor = color;
+				Settings.current.faceColor = color;
 				break;
 			case HOUR_COLOR:
-				Settings.hour.color = color;
+				Settings.current.hour.color = color;
 				break;
 			case MIN_COLOR:
-				Settings.min.color = color;
+				Settings.current.min.color = color;
 				break;
 			case SEC_COLOR:
-				Settings.sec.color = color;
+				Settings.current.sec.color = color;
 				break;
 			case CARD_MARK_TICK_COLOR:
-				Settings.cardinalMark.tickColor = color;
+				Settings.current.cardinalMark.tickColor = color;
 				break;
 			case HOUR_MARK_TICK_COLOR:
-				Settings.hourMark.tickColor = color;
+				Settings.current.hourMark.tickColor = color;
 				break;
 			case MIN_MARK_TICK_COLOR:
-				Settings.minuteMark.tickColor = color;
+				Settings.current.minuteMark.tickColor = color;
 				break;
 			}
 		}
